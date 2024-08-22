@@ -1,4 +1,4 @@
-const cardsData = [
+let cardsData = [
     {
       img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       name: "JavaScript",
@@ -72,7 +72,7 @@ const cardsData = [
       id: 12,
     },
   ];
-function shuffle(array) {
+export function shuffleArr(array) {
 let currentIndex = array.length;
 
 // While there remain elements to shuffle...
@@ -86,7 +86,8 @@ while (currentIndex !== 0) {
     [array[currentIndex], array[randomIndex]] = [
     array[randomIndex], array[currentIndex]];
 }
+return array
 }
-shuffle(cardsData);
-  export default cardsData;
+
+  export default shuffleArr(cardsData);
   

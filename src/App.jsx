@@ -4,11 +4,11 @@ import Header from "./Components/Header";
 function App() {
   const [score, setScore] = useState(0)
   const [failCount, setFailCount] = useState(0)
-  function incrementScore(){
-    setScore(score + 1)
+  function incrementScore(n = 1){
+    setScore(score + n)
   }
-  function incrementFail(){
-    setFailCount(failCount+1)
+  function incrementFail(n = 1){
+    setFailCount(failCount + n)
   }
   return (
     <>
