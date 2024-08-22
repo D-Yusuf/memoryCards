@@ -1,19 +1,20 @@
 import React from "react";
 import { useState } from "react";
-function Card({ card, addSelected }) {
-  const [on, setOn] = useState(true);
-
-  function toggle() {
-    setOn(!on);
-    if(on){
-        addSelected(card.name)
-    }else{
-        addSelected('')
-    }
-  }
+import questionImg from "../images/question.png"
+function Card({ card, addSelected, flip}) { 
   return (
-    <div onClick={toggle} className={`${on ? "bg-green-400" : ""} flex justify-center items-center py-10 px-10`}>
-      <img width={150} height={150} src={card.img} alt={card.name} />
+    <div data-checked={card.isSelected} onClick={()=>flip(card)} className="p-4 w-56 h-96 border " style={{boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)", }}>
+        <div className="card-inner" style={{transform: card.isSelected ? "rotateY(180deg)" : ''}}>
+            <div className="card-back">
+            <img src={card.img} alt={card.name} />
+
+            </div>
+            <div className="card-front">
+
+                <img  src={questionImg} alt={card.name} />
+            </div>
+
+        </div>
     </div>
   );
 }
