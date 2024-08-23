@@ -5,9 +5,9 @@ import { shuffleArr } from "../cardsData";
 function CardsList({incrementScore, incrementFail}) {
   const [data, setData] = useState(cardsData)
   const [finishedCards, setFinishedCards] = useState([])
-  function flipCard(card){
+  function flipCard(card, isFlipped = true){
     setData(data.map(_card=>{
-      return _card.id === card.id ? {..._card, isSelected: !_card.isSelected} : _card
+      return _card.id === card.id ? {..._card, isSelected: isFlipped} : _card
     }))
   }
   
@@ -44,7 +44,13 @@ function CardsList({incrementScore, incrementFail}) {
     }
     gameManager()
   }, [data])
-  
+  function resetCards(){
+    setData(data.map(card=>{ return {...card, isSelected: false}}))
+  }
+  async function newGame(){
+    resetCards()
+    await new Promise(res=> setTimeout(()=> res(setData(shuffleArr(cardsData))), 600))
+  }
   const displayedCards = data.map((card) => {
     return <Card key={card.id} flip={finishedCards.includes(card) ? ()=>{} : flipCard} card={card} />;
   });
@@ -52,8 +58,8 @@ function CardsList({incrementScore, incrementFail}) {
     <div className="px-4">
       <div className="flex gap-5">
 
-      <button onClick={()=> setData(cardsData)} className="bg-gray-600 w-full text-white p-3 mb-3 text-center rounded-md">Reset</button>
-      <button onClick={()=> setData(shuffleArr(cardsData))} className="bg-red-600 w-full text-white p-3 mb-3 text-center rounded-md">Restart</button>
+      <button onClick={resetCards} className="bg-gray-600 w-full text-white p-3 mb-3 text-center rounded-md">Reset Game</button>
+      <button onClick={newGame} className="bg-red-600 w-full text-white p-3 mb-3 text-center rounded-md">New game</button>
       </div>
       <div className="flex flex-wrap gap-4 justify-center items-center px-10">{displayedCards}</div>
     </div>
