@@ -39,7 +39,10 @@ function CardsList({incrementScore, incrementFail}) {
       if(flippedCards.length === 2){
         
         await new Promise(res=> setTimeout(()=> res(checkCards(flippedCards)), 600)) // wait for timeout to finish
+        // flippedCards.forEach(card=> flipCard(card, false))
       }
+      // if (flippedCards.length > 2){
+      // }
 
     }
     gameManager()
