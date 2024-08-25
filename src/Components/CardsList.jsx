@@ -39,9 +39,9 @@ function CardsList({incrementScore, incrementFail}) {
       if(flippedCards.length === 2){
         
         await new Promise(res=> setTimeout(()=> res(checkCards(flippedCards)), 600)) // wait for timeout to finish
-        // flippedCards.forEach(card=> flipCard(card, false))
       }
       // if (flippedCards.length > 2){
+        // flippedCards.forEach(card=> flipCard(card, false))
       // }
 
     }
@@ -58,13 +58,13 @@ function CardsList({incrementScore, incrementFail}) {
     return <Card key={card.id} flip={finishedCards.includes(card) ? ()=>{} : flipCard} card={card} />;
   });
   return (
-    <div className="px-4">
-      <div className="flex gap-5">
+    <div className="px-4  max-w-6xl mx-auto">
+      <div className="flex w-full mb-3 gap-2">
 
-      <button onClick={resetCards} className="bg-gray-600 w-full text-white p-3 mb-3 text-center rounded-md">Reset Game</button>
-      <button onClick={newGame} className="bg-red-600 w-full text-white p-3 mb-3 text-center rounded-md">New game</button>
+      <button onClick={resetCards} className="bg-gray-600 w-full text-white px-3 py-2 text-center rounded-md break-words">Reset Game</button>
+      <button onClick={newGame} className="bg-red-600 w-full text-white px-3 py-2 text-center rounded-md">New game</button>
       </div>
-      <div className="flex flex-wrap gap-4 justify-center items-center px-10">{displayedCards}</div>
+      <div className="px-10 grid place-items-center  lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 w-full">{displayedCards}</div>
     </div>
   );
 }
