@@ -64,7 +64,7 @@ function CardsList({incrementScore, incrementFail}) {
       <button onClick={resetCards} className="bg-gray-600 w-full text-white px-3 py-2 text-center rounded-md break-words">Reset Game</button>
       <button onClick={newGame} className="bg-red-600 w-full text-white px-3 py-2 text-center rounded-md">New game</button>
       </div>
-      <div className="px-10 grid place-items-center  lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 w-full">{displayedCards}</div>
+      <div className="px-10 grid place-items-center  grid-cols-3 gap-4 ">{displayedCards}</div>
     </div>
   );
 }
