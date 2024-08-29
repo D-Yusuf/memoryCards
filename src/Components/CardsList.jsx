@@ -58,13 +58,13 @@ function CardsList({incrementScore, incrementFail}) {
     return <Card key={card.id} flip={finishedCards.includes(card) ? ()=>{} : flipCard} card={card} />;
   });
   return (
-    <div className="px-4  max-w-6xl mx-auto">
-      <div className="flex w-full mb-3 gap-2">
+    <div className="">
+      <div className="flex mb-3 gap-2 justify-center px-2">
 
       <button onClick={resetCards} className="bg-gray-600 w-full text-white px-3 py-2 text-center rounded-md break-words">Reset Game</button>
       <button onClick={newGame} className="bg-red-600 w-full text-white px-3 py-2 text-center rounded-md">New game</button>
       </div>
-      <div className="px-10 grid place-items-center  grid-cols-3 gap-4 ">{displayedCards}</div>
+      <div className="flex justify-center flex-row flex-wrap gap-2 ">{displayedCards}</div>
     </div>
   );
 }

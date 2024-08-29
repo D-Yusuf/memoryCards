@@ -11,12 +11,12 @@ function App() {
     setFailCount(failCount + n)
   }
   return (
-    <>
+    <div className="max-w-xl mx-auto">
       <Header score={score} failCount={failCount}/>
       <hr className='h-1 bg-black mb-12'/>
 
       <CardsList incrementScore={incrementScore} incrementFail={incrementFail}/>
-    </>
+    </div>
   );
 }
 

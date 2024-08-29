@@ -3,8 +3,8 @@ import { useState } from "react";
 import questionImg from "../images/question.png"
 function Card({ card, addSelected, flip}) { 
   return (
-    <div onClick={()=>flip(card)} className=" lg:w-56 w-28  lg:h-96 h-56 border cursor-pointer" style={{ }}>
-        <div className="card-inner " style={{transform: card.isSelected ? "rotateY(180deg)" : ''}}>
+    <div onClick={()=>flip(card)} className="min-w-[30%] md:h-96 h-56 cursor-pointer" style={{ }}>
+        <div className="card-inner" style={{transform: card.isSelected ? "rotateY(180deg)" : ''}}>
             <div className="card-back relative p-2">
                 <img className="drop-shadow-lg" src={card.img} alt={card.name} />
                 <p className="absolute bottom-0 font-bold">{card.name}</p>
